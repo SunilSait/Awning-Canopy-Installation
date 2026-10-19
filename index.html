@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadeCraft — Premium Awning & Canopy Installation</title>
+    <meta name="description" content="Professional awning and canopy installation services. Retractable awnings, fixed canopies, patio covers — we create perfect outdoor shade solutions.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="components.js" defer></script>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- ===== HERO SLIDER ===== -->
+    <section class="hero-slider" id="heroSlider">
+        <div class="hero-slide active" aria-hidden="false">
+            <div class="hero-slide-bg">
+                <img src="assets/images/hero-awning-1.jpg" alt="Modern retractable awning over a patio deck" loading="eager">
+            </div>
+            <div class="hero-slide-content">
+                <span class="hero-badge"><i class="fas fa-sun"></i> Premium Shade Solutions</span>
+                <h1>Transform Your <span class="highlight">Outdoor Living</span> Space</h1>
+                <p>Expert awning and canopy installation that blends beauty with function. Enjoy your patio, deck, or storefront in any weather.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Book Free Measurement</a>
+                    <a href="products.html" class="btn btn-secondary btn-lg">Explore Products</a>
+                </div>
+                <div class="hero-stat-row">
+                    <div class="hero-stat-item">
+                        <span class="stat-num" data-count="2500" data-suffix="+">0</span>
+                        <span class="stat-label">Installations</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-num" data-count="15" data-suffix=" yrs">0</span>
+                        <span class="stat-label">Experience</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-num" data-count="98" data-suffix="%">0</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide" aria-hidden="true">
+            <div class="hero-slide-bg">
+                <img src="assets/images/hero-canopy-2.jpg" alt="Elegant commercial storefront awning" loading="lazy">
+            </div>
+            <div class="hero-slide-content">
+                <span class="hero-badge"><i class="fas fa-store"></i> Commercial Solutions</span>
+                <h1>Elevate Your <span class="highlight">Business Facade</span></h1>
+                <p>Eye-catching commercial awnings that boost curb appeal, reduce energy costs, and create inviting storefronts for your customers.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Get a Quote</a>
+                    <a href="gallery.html" class="btn btn-secondary btn-lg">View Our Work</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide" aria-hidden="true">
+            <div class="hero-slide-bg">
+                <img src="assets/images/hero-patio-3.jpg" alt="Pergola canopy over outdoor dining" loading="lazy">
+            </div>
+            <div class="hero-slide-content">
+                <span class="hero-badge"><i class="fas fa-utensils"></i> Patio & Pergola</span>
+                <h1>Dine Under the <span class="highlight">Perfect Canopy</span></h1>
+                <p>Custom patio covers and pergola canopies that extend your entertainment area year-round. Built to last, designed to impress.</p>
+                <div class="hero-actions">
+                    <a href="products.html" class="btn btn-primary btn-lg">See Patio Covers</a>
+                    <a href="pricing.html" class="btn btn-secondary btn-lg">Pricing Guide</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="hero-dots">
+            <button class="hero-dot active" aria-label="Slide 1" aria-selected="true"><span class="hero-dot-fill"></span></button>
+            <button class="hero-dot" aria-label="Slide 2" aria-selected="false"><span class="hero-dot-fill"></span></button>
+            <button class="hero-dot" aria-label="Slide 3" aria-selected="false"><span class="hero-dot-fill"></span></button>
+        </div>
+
+        <!-- Nav Arrows -->
+        <div class="hero-nav">
+            <button class="hero-nav-btn" id="heroPrevBtn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-nav-btn" id="heroNextBtn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- ===== AWNING STYLE GALLERY ===== -->
+    <section class="awning-gallery section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-th-large"></i> Our Styles</span>
+                <h2>Awning Styles to Suit Every Space</h2>
+                <p>Browse our curated collection of shade solutions — from classic fixed designs to modern motorized retractable systems.</p>
+            </div>
+            <div class="awning-gallery-grid">
+                <div class="awning-gallery-card fade-up">
+                    <img src="assets/images/product-retractable.jpg" alt="Retractable awning extended over patio">
+                    <div class="awning-gallery-overlay">
+                        <h3>Retractable Awnings</h3>
+                        <p>Sun when you want it, shade when you need it</p>
+                    </div>
+                </div>
+                <div class="awning-gallery-card fade-up">
+                    <img src="assets/images/product-fixed.jpg" alt="Fixed aluminum awning over entrance">
+                    <div class="awning-gallery-overlay">
+                        <h3>Fixed Canopies</h3>
+                        <p>Permanent protection with elegant design</p>
+                    </div>
+                </div>
+                <div class="awning-gallery-card fade-up">
+                    <img src="assets/images/product-patio-cover.jpg" alt="Luxury patio cover with louvers">
+                    <div class="awning-gallery-overlay">
+                        <h3>Patio Covers</h3>
+                        <p>Complete outdoor room transformation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why-us section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-award"></i> Why ShadeCraft</span>
+                <h2>Built on Trust, Delivered with Excellence</h2>
+                <p>Over 15 years of crafting premium shade solutions for homes and businesses across the region.</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-card fade-up">
+                    <div class="why-us-icon"><i class="fas fa-tape"></i></div>
+                    <h3>Free Measurement</h3>
+                    <p>Our experts visit your property for precise measurements and consultation at no charge.</p>
+                </div>
+                <div class="why-us-card fade-up">
+                    <div class="why-us-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>10-Year Warranty</h3>
+                    <p>Every installation comes with our industry-leading comprehensive warranty for total peace of mind.</p>
+                </div>
+                <div class="why-us-card fade-up">
+                    <div class="why-us-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Custom Designs</h3>
+                    <p>Choose from 200+ fabric colors and patterns to perfectly match your property's aesthetic.</p>
+                </div>
+                <div class="why-us-card fade-up">
+                    <div class="why-us-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Quick Install</h3>
+                    <p>Most installations completed within a single day with minimal disruption to your routine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE HIGHLIGHTS ===== -->
+    <section class="service-highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlights-img slide-left">
+                    <img src="assets/images/about-team.jpg" alt="ShadeCraft installation team at work">
+                </div>
+                <div class="highlights-content slide-right">
+                    <h2>Professional Installation You Can Count On</h2>
+                    <p>Our certified installers bring precision and care to every project. From initial consultation to final walkthrough, we ensure every detail is perfect.</p>
+                    <ul class="highlights-list">
+                        <li><i class="fas fa-check-circle"></i> Licensed and insured professionals</li>
+                        <li><i class="fas fa-check-circle"></i> Same-day installation available</li>
+                        <li><i class="fas fa-check-circle"></i> Weather-tested materials and hardware</li>
+                        <li><i class="fas fa-check-circle"></i> Post-installation support and maintenance</li>
+                        <li><i class="fas fa-check-circle"></i> Satisfaction guaranteed on every project</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="process-section section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-list-ol"></i> Our Process</span>
+                <h2>From Consultation to Installation</h2>
+                <p>A simple, transparent process designed to deliver your perfect shade solution with ease.</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step fade-up">
+                    <div class="process-step-num">1</div>
+                    <h3>Free Consultation</h3>
+                    <p>We visit your property, discuss your needs, and recommend the best shade solution for your space.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-step-num">2</div>
+                    <h3>Custom Design</h3>
+                    <p>Our designers create a tailored plan with fabric samples, measurements, and a detailed quote.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-step-num">3</div>
+                    <h3>Fabrication</h3>
+                    <p>Your awning or canopy is precision-manufactured in our facility using premium materials.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-step-num">4</div>
+                    <h3>Installation</h3>
+                    <p>Our expert team installs your shade solution quickly and cleanly, with a full walkthrough upon completion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-quote-left"></i> Testimonials</span>
+                <h2>What Our Clients Say</h2>
+                <p>Real stories from homeowners and businesses who transformed their outdoor spaces with ShadeCraft.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The retractable awning transformed our patio into a year-round living space. The team was professional, on time, and the quality is outstanding. Couldn't be happier!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div class="testimonial-info">
+                            <h4>James Mitchell</h4>
+                            <span>Homeowner, Residential</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"ShadeCraft installed awnings across all three of our restaurant locations. The branding integration was seamless and our customers love the outdoor seating."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div class="testimonial-info">
+                            <h4>Sofia Rodriguez</h4>
+                            <span>Restaurant Owner, Commercial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"From measurement to installation, everything was handled with care. The motorized patio cover has been a game-changer for our family gatherings."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DK</div>
+                        <div class="testimonial-info">
+                            <h4>David Kim</h4>
+                            <span>Homeowner, Patio Cover</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-circle-question"></i> FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about our awning and canopy installation services.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item fade-up">
+                    <button class="faq-question">How long does a typical installation take? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Most residential awning installations are completed within a single day (4–8 hours). Larger commercial projects or custom patio covers may take 2–3 days depending on complexity and site conditions.</div></div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">What materials do you use for your awnings? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">We use premium Sunbrella® and Dickson® fabrics that are UV-resistant, waterproof, and fade-proof. Our frames are constructed from marine-grade aluminum with powder-coated finishes for maximum durability.</div></div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Do you offer warranties on your installations? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes! All our installations come with a comprehensive 10-year warranty covering both fabric and framework. We also offer extended maintenance plans for motorized systems.</div></div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Can I customize the color and pattern of my awning? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Absolutely! We offer over 200 fabric colors and patterns. Our design consultant will bring samples to your property so you can see how different options look in your specific lighting conditions.</div></div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Are your awnings wind and rain resistant? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Our fixed awnings are engineered to withstand winds up to 75 mph. Retractable models include optional wind sensors that automatically retract the awning in high-wind conditions to protect your investment.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner-inner fade-up">
+                <h2>Ready to Create Your Perfect Outdoor Space?</h2>
+                <p>Schedule a free consultation and measurement with our shade experts. No obligation — just expert advice tailored to your property.</p>
+                <div class="hero-actions" style="justify-content: center;">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Book Free Consultation</a>
+                    <a href="tel:18001234567" class="btn btn-secondary btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.3);">Call (800) 123-4567</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

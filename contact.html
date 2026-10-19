@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — ShadeCraft Free Measurement Booking</title>
+    <meta name="description" content="Book a free measurement and consultation with ShadeCraft. Our shade experts will visit your property and provide a custom quote at no cost.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="components.js" defer></script>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- ===== CONTACT HERO ===== -->
+    <section class="contact-hero">
+        <div class="container">
+            <span class="section-badge" style="color:var(--secondary-light);background:rgba(212,168,83,0.15);margin-bottom:16px;"><i class="fas fa-envelope"></i> Get In Touch</span>
+            <h1>Book Your Free Measurement</h1>
+            <p>Fill out the form below and one of our shade experts will contact you within 24 hours to schedule your complimentary on-site consultation.</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-cards">
+                    <div class="contact-info-card fade-up">
+                        <div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Visit Our Showroom</h4>
+                            <p>742 Shade Avenue, Suite 200<br>Greenfield, CA 93927</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card fade-up">
+                        <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Call Us</h4>
+                            <p><a href="tel:18001234567">+1 (800) 123-4567</a><br>Mon–Sat: 8:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card fade-up">
+                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:info@shadecraft.com">info@shadecraft.com</a><br>We reply within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card fade-up">
+                        <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Business Hours</h4>
+                            <p>Monday – Friday: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-card fade-up">
+                    <h2>Free Measurement Booking</h2>
+                    <p class="form-subtitle">Complete the form and our team will schedule your free on-site consultation.</p>
+                    <form class="form-grid" onsubmit="event.preventDefault(); alert('Thank you! Your measurement booking request has been received. Our team will contact you within 24 hours.'); this.reset();">
+                        <div class="form-group">
+                            <label for="contactFirstName">First Name</label>
+                            <input type="text" id="contactFirstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactLastName">Last Name</label>
+                            <input type="text" id="contactLastName" placeholder="Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="contactPropertyType">Property Type</label>
+                            <select id="contactPropertyType" required>
+                                <option value="" disabled selected>Select property type</option>
+                                <option value="residential">Residential Home</option>
+                                <option value="apartment">Apartment / Condo</option>
+                                <option value="restaurant">Restaurant / Café</option>
+                                <option value="retail">Retail / Storefront</option>
+                                <option value="office">Office Building</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="contactProduct">Product Interest</label>
+                            <select id="contactProduct" required>
+                                <option value="" disabled selected>Select product type</option>
+                                <option value="retractable">Retractable Awning</option>
+                                <option value="fixed">Fixed Canopy</option>
+                                <option value="patio-cover">Patio Cover / Pergola</option>
+                                <option value="sail-shade">Sail Shade</option>
+                                <option value="window">Window Awning</option>
+                                <option value="not-sure">Not Sure — Need Advice</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="contactDate">Preferred Measurement Date</label>
+                            <input type="date" id="contactDate">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="contactMessage">Additional Details</label>
+                            <textarea id="contactMessage" placeholder="Tell us about your space, dimensions, preferences, or any specific requirements..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-primary btn-lg w-full">Submit Booking Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="contact-map fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019726816543!2d-122.41941548468134!3d37.77492997975961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064e78bcb81%3A0xc10b3f53e3b3de90!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1697652000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ShadeCraft Location Map"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

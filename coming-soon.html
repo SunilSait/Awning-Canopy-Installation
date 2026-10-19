@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon — ShadeCraft</title>
+    <meta name="description" content="Something exciting is coming from ShadeCraft. Sign up to be notified when our new shade solutions launch.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="components.js" defer></script>
+</head>
+<body>
+    <div id="fullscreen-topbar-placeholder"></div>
+
+    <main class="coming-soon-page">
+        <div class="cs-content">
+            <h1>Something Exciting Is Coming</h1>
+            <p>We're working on something new to elevate your outdoor shade experience. Stay tuned — we'll notify you when it's ready.</p>
+
+            <!-- Countdown -->
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-mins">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-secs">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <!-- Notify Form -->
+            <form class="cs-form" onsubmit="event.preventDefault(); alert('Thank you! We will notify you when we launch.'); this.reset();">
+                <input type="email" placeholder="Enter your email for updates" required aria-label="Email address">
+                <button type="submit" class="btn btn-primary">Notify Me</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
