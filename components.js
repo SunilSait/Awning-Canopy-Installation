@@ -503,10 +503,6 @@ function renderAuthTopbar() {
     const html = `
     <header class="auth-topbar">
         <div class="auth-topbar-inner">
-            <a href="index.html" class="auth-back-link" aria-label="Back to ShadeCraft Home">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </a>
             <div class="auth-topbar-actions">
                 <button class="auth-toggle-btn" id="rtlToggleNav" aria-label="Toggle layout direction / RTL" title="Toggle RTL / LTR direction">
                     <span class="dir-indicator">RTL</span>
@@ -547,10 +543,6 @@ function renderFullscreenTopbar() {
                 </span>
             </a>
             <div class="fullscreen-topbar-actions">
-                <a href="index.html" class="auth-back-link hide-mobile" aria-label="Back to Home">
-                    <i class="fas fa-arrow-left"></i>
-                    <span>Back to Home</span>
-                </a>
                 <button class="auth-toggle-btn" id="rtlToggleNav" aria-label="Toggle layout direction / RTL" title="Toggle RTL / LTR direction">
                     <span class="dir-indicator">RTL</span>
                 </button>
@@ -797,6 +789,91 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
     initGalleryFilter();
     initLightbox();
+    initExplorerTabs();
+    initBeforeAfterSlider();
 
     if (page === 'coming-soon.html') initCountdown();
 });
+
+/* ---- Product Explorer Tabs ---- */
+function initExplorerTabs() {
+    const tabs = document.querySelectorAll('.explorer-tab');
+    const panels = document.querySelectorAll('.explorer-panel');
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            const targetPanel = document.querySelector(`.explorer-panel[data-panel="${target}"]`);
+            if (targetPanel) targetPanel.classList.add('active');
+        });
+    });
+}
+
+/* ---- Before & After Slider ---- */
+function initBeforeAfterSlider() {
+    const sliders = document.querySelectorAll('.ba-slider');
+    if (!sliders.length) return;
+
+    sliders.forEach(slider => {
+        const range = slider.querySelector('.ba-slider-range');
+
+        const updatePosition = (percent) => {
+            const clamped = Math.max(0, Math.min(100, percent));
+            slider.style.setProperty('--ba-position', clamped + '%');
+            if (range && Math.abs(parseFloat(range.value) - clamped) > 0.5) {
+                range.value = clamped;
+            }
+        };
+
+        if (range) {
+            range.addEventListener('input', (e) => {
+                updatePosition(parseFloat(e.target.value));
+            });
+        }
+
+        let isDragging = false;
+
+        const handlePointer = (e) => {
+            const rect = slider.getBoundingClientRect();
+            const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            let percent;
+            if (isRTL) {
+                percent = ((rect.right - clientX) / rect.width) * 100;
+            } else {
+                percent = ((clientX - rect.left) / rect.width) * 100;
+            }
+            updatePosition(percent);
+        };
+
+        slider.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            if (slider.setPointerCapture) {
+                try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+            }
+            handlePointer(e);
+        });
+
+        slider.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            handlePointer(e);
+        });
+
+        const stopDrag = (e) => {
+            if (isDragging) {
+                isDragging = false;
+                if (slider.releasePointerCapture) {
+                    try { slider.releasePointerCapture(e.pointerId); } catch (err) {}
+                }
+            }
+        };
+
+        slider.addEventListener('pointerup', stopDrag);
+        slider.addEventListener('pointercancel', stopDrag);
+    });
+}
+
