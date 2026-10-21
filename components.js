@@ -92,7 +92,6 @@ function renderNavbar() {
                     <i class="fas ${isDark ? 'fa-sun' : 'fa-moon'}"></i>
                 </button>
                 <a href="login.html" class="btn btn-primary btn-sm nav-cta-btn">Sign In</a>
-                <a href="contact.html" class="btn btn-secondary btn-sm nav-cta-secondary">Get Quote</a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                     <span class="mobile-menu-icon"><i class="fas fa-bars"></i></span>
                 </button>
@@ -1179,6 +1178,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initHomeHeroStats();
     initSwatchSelector();
     initHeroParticleCanvas();
+    initHome2TestimonialsSlider();
+    initPricingMobileTable();
+    initHome2CompareMobileTable();
 
     if (page === 'coming-soon.html') initCountdown();
 });
@@ -1445,6 +1447,198 @@ function initHeroParticleCanvas() {
         }
 
         loop();
+    });
+}
+
+/* ===== HOME 2: 5-SECOND CUSTOMER TESTIMONIAL SLIDER ===== */
+function initHome2TestimonialsSlider() {
+    const slider = document.getElementById('h2TestimonialsSlider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.h2-testi-slide');
+    const dots = slider.querySelectorAll('.h2-testi-dot');
+    const prevBtn = document.getElementById('h2TestiPrev');
+    const nextBtn = document.getElementById('h2TestiNext');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+    let isPaused = false;
+    const SLIDE_DURATION = 5000; // 5 seconds once
+
+    function goToSlide(index) {
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+
+        currentIndex = index;
+
+        // Update slides
+        slides.forEach((slide, i) => {
+            if (i === currentIndex) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        // Update dots and restart CSS progress bar animation
+        dots.forEach((dot, i) => {
+            const fill = dot.querySelector('.h2-testi-dot-fill');
+            if (i === currentIndex) {
+                dot.classList.add('active');
+                if (fill) {
+                    // Reset animation
+                    fill.style.animation = 'none';
+                    dot.offsetHeight; // trigger reflow
+                    fill.style.animation = `h2TestiProgress ${SLIDE_DURATION}ms linear forwards`;
+                    fill.style.animationPlayState = isPaused ? 'paused' : 'running';
+                }
+            } else {
+                dot.classList.remove('active');
+                if (fill) {
+                    fill.style.animation = 'none';
+                }
+            }
+        });
+    }
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+
+    function startTimer() {
+        stopTimer();
+        timer = setInterval(() => {
+            if (!isPaused) {
+                nextSlide();
+            }
+        }, SLIDE_DURATION);
+    }
+
+    function stopTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function resetTimer() {
+        stopTimer();
+        startTimer();
+    }
+
+    // Controls
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) prevSlide(); else nextSlide();
+            resetTimer();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) nextSlide(); else prevSlide();
+            resetTimer();
+        });
+    }
+
+    // Dot clicks
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.index, 10);
+            if (!isNaN(idx) && idx !== currentIndex) {
+                goToSlide(idx);
+                resetTimer();
+            }
+        });
+    });
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', () => {
+        isPaused = true;
+        slider.classList.add('is-paused');
+        const activeFill = slider.querySelector('.h2-testi-dot.active .h2-testi-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'paused';
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isPaused = false;
+        slider.classList.remove('is-paused');
+        const activeFill = slider.querySelector('.h2-testi-dot.active .h2-testi-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'running';
+    });
+
+    // Keyboard navigation when focused
+    slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) prevSlide(); else nextSlide();
+            resetTimer();
+        } else if (e.key === 'ArrowLeft') {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) nextSlide(); else prevSlide();
+            resetTimer();
+        }
+    });
+
+    // Initial setup
+    goToSlide(0);
+    startTimer();
+}
+
+/* ---- PRICING TABLE MOBILE TIER SWITCHER ---- */
+function initPricingMobileTable() {
+    const tabs = document.querySelectorAll('.pricing-mobile-tier-tabs .tier-tab-btn');
+    const tableWrapper = document.querySelector('.pricing-table-wrapper');
+    if (!tabs.length || !tableWrapper) return;
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const tier = tab.dataset.tier;
+            if (!tier) return;
+
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            tableWrapper.setAttribute('data-active-tier', tier);
+        });
+    });
+}
+
+/* ---- HOME 2 COMPARISON TABLE MOBILE SWITCHER ---- */
+function initHome2CompareMobileTable() {
+    const tabs = document.querySelectorAll('.h2-compare-mobile-tabs .h2-compare-tab');
+    const tableWrap = document.querySelector('.comparison-table-wrap');
+    if (!tabs.length || !tableWrap) return;
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const product = tab.dataset.product;
+            if (!product) return;
+
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            tableWrap.setAttribute('data-active-product', product);
+        });
     });
 }
 

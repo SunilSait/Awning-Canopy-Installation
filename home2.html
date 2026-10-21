@@ -262,7 +262,7 @@
             <div class="showcase-grid">
                 <div class="showcase-card fade-up">
                     <div class="showcase-card-img">
-                        <img src="assets/images/gallery-1.jpg" alt="The Olive Tree Restaurant outdoor dining terrace with motorized retractable awning">
+                        <img src="assets/images/home2-showcase-olive-tree.jpg" alt="The Olive Tree Restaurant outdoor dining terrace with motorized retractable awning">
                     </div>
                     <div class="showcase-card-content">
                         <h3>The Olive Tree Restaurant — Terrace Transformation</h3>
@@ -271,7 +271,7 @@
                 </div>
                 <div class="showcase-card fade-up">
                     <div class="showcase-card-img">
-                        <img src="assets/images/gallery-2.jpg" alt="Sail shade over swimming pool">
+                        <img src="assets/images/home2-showcase-pool-sails.jpg" alt="Sail shade over swimming pool">
                     </div>
                     <div class="showcase-card-content">
                         <h3>Modern Villa — Poolside Sail Shades</h3>
@@ -300,7 +300,7 @@
                     <a href="pricing.html" class="btn btn-primary">View Premium Plans</a>
                 </div>
                 <div class="highlights-img slide-right">
-                    <img src="assets/images/product-patio-cover.jpg" alt="Luxury patio cover with integrated lighting">
+                    <img src="assets/images/home2-premium-experience.jpg" alt="Architect and clients reviewing bespoke 3D canopy plans under a luxury motorized pergola pavilion" loading="lazy">
                 </div>
             </div>
         </div>
@@ -365,7 +365,7 @@
                     </div>
                 </div>
                 <div class="mosaic-item">
-                    <img src="assets/images/gallery-5.jpg" alt="Modern residential awning installation">
+                    <img src="assets/images/home2-mosaic-minimalist.jpg" alt="Modern residential awning installation">
                     <div class="mosaic-overlay">
                         <span class="mosaic-category">Residential</span>
                         <h3>Modern Minimalist</h3>
@@ -373,7 +373,7 @@
                     </div>
                 </div>
                 <div class="mosaic-item">
-                    <img src="assets/images/gallery-6.jpg" alt="Commercial awning installation">
+                    <img src="assets/images/home2-mosaic-boutique.jpg" alt="Commercial awning installation">
                     <div class="mosaic-overlay">
                         <span class="mosaic-category">Commercial</span>
                         <h3>Boutique Facade</h3>
@@ -460,7 +460,20 @@
                 <h2>Find Your Perfect Shade Solution</h2>
                 <p>Compare features across our three main product lines to find the best fit for your project.</p>
             </div>
-            <div class="comparison-table-wrap fade-up">
+            <!-- Mobile Comparison Tab Switcher (Visible on mobile <= 768px) -->
+            <div class="h2-compare-mobile-tabs" role="tablist" aria-label="Select product to compare">
+                <button type="button" class="h2-compare-tab active" data-product="1" role="tab" aria-selected="true">
+                    <span>Retractable</span>
+                </button>
+                <button type="button" class="h2-compare-tab" data-product="2" role="tab" aria-selected="false">
+                    <span> Canopy</span>
+                </button>
+                <button type="button" class="h2-compare-tab" data-product="3" role="tab" aria-selected="false">
+                    <span>Patio Cover</span>
+                </button>
+            </div>
+
+            <div class="comparison-table-wrap fade-up" data-active-product="1">
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -650,14 +663,14 @@
             <div class="signature-grid fade-up">
                 <div class="signature-card">
                     <div class="signature-card-img">
-                        <img src="assets/images/coastal-canopy.jpg" alt="Luxury coastal waterfront canopy installation">
+                        <img src="assets/images/signature-malibu-clifftop.jpg" alt="Luxury Malibu cliffside oceanfront estate with cantilevered glass canopy at sunset" loading="lazy">
                     </div>
                     <div class="signature-card-content">
                         <div class="signature-location">
                             <i class="fas fa-map-pin"></i> Malibu, California
                         </div>
                         <h3>Clifftop Glass Canopy Villa</h3>
-                        <p>A breathtaking 40-foot glass and steel canopy spanning the entire entertainment deck of this $12M oceanfront estate. Features integrated misting system and retractable side screens.</p>
+                        <p>A breathtaking 40-foot glass and steel canopy spanning the entire entertainment deck of this $12M oceanfront estate and misting system.</p>
                         <div class="signature-meta">
                             <span><i class="fas fa-ruler-combined"></i> 40 ft span</span>
                             <span><i class="fas fa-clock"></i> 5-day install</span>
@@ -667,7 +680,7 @@
                 </div>
                 <div class="signature-card">
                     <div class="signature-card-img">
-                        <img src="assets/images/mosaic-rooftop.jpg" alt="Urban rooftop shade sail installation">
+                        <img src="assets/images/signature-manhattan-penthouse.jpg" alt="Exclusive Manhattan penthouse rooftop terrace with tensioned geometric shade sails and skyline view" loading="lazy">
                     </div>
                     <div class="signature-card-content">
                         <div class="signature-location">
@@ -683,7 +696,7 @@
                 </div>
                 <div class="signature-card">
                     <div class="signature-card-img">
-                        <img src="assets/images/signature-lake-como.jpg" alt="Luxury motorized louvered pergola over Lake Como villa terrace">
+                        <img src="assets/images/signature-lake-como.jpg" alt="Luxury motorized louvered pergola over Lake Como villa terrace" loading="lazy">
                     </div>
                     <div class="signature-card-content">
                         <div class="signature-location">
@@ -700,7 +713,7 @@
                 </div>
                 <div class="signature-card">
                     <div class="signature-card-img">
-                        <img src="assets/images/eco-sustainability.jpg" alt="Eco-friendly solar canopy installation">
+                        <img src="assets/images/signature-portland-solar.jpg" alt="Contemporary eco-friendly sustainable architectural solar canopy pergola in Portland" loading="lazy">
                     </div>
                     <div class="signature-card-content">
                         <div class="signature-location">
@@ -726,45 +739,92 @@
                 <h2>Trusted by Thousands</h2>
                 <p>Hear from our premium clients about their experience with ShadeCraft installations.</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- Testimonial Slider Container -->
+            <div class="h2-testimonials-slider" id="h2TestimonialsSlider" aria-roledescription="carousel" aria-label="Customer Testimonials">
+                <div class="h2-testi-track">
+                    <!-- Slide 1 -->
+                    <div class="h2-testi-slide active" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                        <div class="testimonial-card h2-testi-card">
+                            <div class="h2-testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The 3D visualization service was incredible — we could see exactly how our patio cover would look before a single bolt was placed. The final result exceeded even the render."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="assets/images/testimonial-amanda-wheeler.jpg" alt="Amanda Wheeler" loading="lazy">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Amanda Wheeler</h4>
+                                    <span>Premium Patio Cover Client</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="testimonial-text">"The 3D visualization service was incredible — we could see exactly how our patio cover would look before a single bolt was placed. The final result exceeded even the render."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AW</div>
-                        <div class="testimonial-info">
-                            <h4>Amanda Wheeler</h4>
-                            <span>Premium Patio Cover Client</span>
+
+                    <!-- Slide 2 -->
+                    <div class="h2-testi-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                        <div class="testimonial-card h2-testi-card">
+                            <div class="h2-testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Smart home integration was a must for us. The awning responds to our Alexa commands and the weather sensors automatically protect it during storms. Truly premium."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="assets/images/testimonial-robert-blake.jpg" alt="Robert Blake" loading="lazy">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Robert Blake</h4>
+                                    <span>Smart Home Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="h2-testi-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                        <div class="testimonial-card h2-testi-card">
+                            <div class="h2-testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Having a dedicated project manager made all the difference. Communication was exceptional from start to finish. Worth every penny of the premium service."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="assets/images/testimonial-laura-patterson.jpg" alt="Laura Patterson" loading="lazy">
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Laura Patterson</h4>
+                                    <span>Commercial Client, Hotel</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                <!-- Navigation Controls -->
+                <div class="h2-testi-controls">
+                    <button class="h2-testi-btn prev" id="h2TestiPrev" aria-label="Previous testimonial">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+
+                    <!-- Indicators / Progress Bars -->
+                    <div class="h2-testi-dots" id="h2TestiDots">
+                        <button class="h2-testi-dot active" data-index="0" aria-label="Go to slide 1">
+                            <span class="h2-testi-dot-fill"></span>
+                        </button>
+                        <button class="h2-testi-dot" data-index="1" aria-label="Go to slide 2">
+                            <span class="h2-testi-dot-fill"></span>
+                        </button>
+                        <button class="h2-testi-dot" data-index="2" aria-label="Go to slide 3">
+                            <span class="h2-testi-dot-fill"></span>
+                        </button>
                     </div>
-                    <p class="testimonial-text">"Smart home integration was a must for us. The awning responds to our Alexa commands and the weather sensors automatically protect it during storms. Truly premium."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">RB</div>
-                        <div class="testimonial-info">
-                            <h4>Robert Blake</h4>
-                            <span>Smart Home Integration</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Having a dedicated project manager made all the difference. Communication was exceptional from start to finish. Worth every penny of the premium service."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">LP</div>
-                        <div class="testimonial-info">
-                            <h4>Laura Patterson</h4>
-                            <span>Commercial Client, Hotel</span>
-                        </div>
-                    </div>
+
+                    <button class="h2-testi-btn next" id="h2TestiNext" aria-label="Next testimonial">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
         </div>

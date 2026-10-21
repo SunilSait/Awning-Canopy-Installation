@@ -104,7 +104,24 @@
                 <p>Compare specifications, hardware grades, automation capabilities, and warranty terms across all three tiers.</p>
             </div>
 
-            <div class="pricing-table-wrapper fade-up">
+            <!-- Mobile Tier Switcher (Only visible on mobile screens <= 768px) -->
+            <div class="pricing-mobile-tier-tabs" role="tablist" aria-label="Select comparison plan">
+                <button type="button" class="tier-tab-btn active" data-tier="1" role="tab" aria-selected="true">
+                    <span>Essential</span>
+                    <small>$800</small>
+                </button>
+                <button type="button" class="tier-tab-btn popular" data-tier="2" role="tab" aria-selected="false">
+                    <span class="tab-badge">POPULAR</span>
+                    <span>Professional</span>
+                    <small>$2,200</small>
+                </button>
+                <button type="button" class="tier-tab-btn" data-tier="3" role="tab" aria-selected="false">
+                    <span>Premium</span>
+                    <small>$4,500</small>
+                </button>
+            </div>
+
+            <div class="pricing-table-wrapper fade-up" data-active-tier="1">
                 <table class="pricing-table">
                     <thead>
                         <tr>
