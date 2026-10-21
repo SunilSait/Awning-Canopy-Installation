@@ -53,6 +53,7 @@ function renderNavbar() {
     const links = [
         { href: 'index.html', label: 'Home' },
         { href: 'home2.html', label: 'Home 2' },
+        { href: 'about.html', label: 'About' },
         { href: 'products.html', label: 'Products' },
         { href: 'gallery.html', label: 'Gallery' },
         { href: 'pricing.html', label: 'Pricing' },

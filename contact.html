@@ -15,6 +15,7 @@
 
     <!-- ===== CONTACT HERO ===== -->
     <section class="contact-hero">
+        <img src="assets/images/contact-hero-banner.jpg" alt="Modern welcoming ShadeCraft awning showroom and design consultation studio" class="page-hero-bg" loading="eager">
         <div class="container">
             <span class="section-badge" style="color:var(--secondary-light);background:rgba(212,168,83,0.15);margin-bottom:16px;"><i class="fas fa-envelope"></i> Get In Touch</span>
             <h1>Book Your Free Measurement</h1>
@@ -66,7 +67,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form-card fade-up">
+                <div class="contact-form-card fade-up" id="bookingForm">
                     <h2>Free Measurement Booking</h2>
                     <p class="form-subtitle">Complete the form and our team will schedule your free on-site consultation.</p>
                     <form class="form-grid" onsubmit="event.preventDefault(); alert('Thank you! Your measurement booking request has been received. Our team will contact you within 24 hours.'); this.reset();">
@@ -135,6 +136,31 @@
             <!-- Map -->
             <div class="contact-map fade-up">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019726816543!2d-122.41941548468134!3d37.77492997975961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064e78bcb81%3A0xc10b3f53e3b3de90!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1697652000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ShadeCraft Location Map"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER (Normal / Standard CTA) ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner-inner fade-up">
+                <div class="cta-badge">
+                    <span class="cta-pulse-dot"></span>
+                    <span>Complimentary On-Site Assessment & 3D Rendering</span>
+                </div>
+                <h2>Ready to Create Your <span class="cta-title-accent">Perfect Outdoor Space</span>?</h2>
+                <p>Schedule a free consultation and measurement with our shade experts. No obligation — just tailored expert advice and custom concepts for your property.</p>
+                <div class="cta-actions" style="margin-bottom: 0;">
+                    <a href="tel:18001234567" class="btn btn-cta-primary">
+                        <i class="fas fa-phone-volume"></i>
+                        <span>Call (800) 123-4567</span>
+                        <i class="fas fa-arrow-right cta-arrow"></i>
+                    </a>
+                    <a href="#bookingForm" class="btn btn-cta-secondary">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Book Online Consultation</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
