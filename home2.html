@@ -13,19 +13,219 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-    <!-- ===== PREMIUM HERO ===== -->
-    <section class="hero-premium">
-        <div class="hero-premium-bg">
-            <img src="assets/images/hero-patio-3.jpg" alt="Luxury outdoor living with pergola canopy" loading="eager">
+    <!-- ===== PREMIUM HERO (3-Slide Showcase Slider) ===== -->
+    <section class="hero-premium-v2" id="home2Hero" aria-label="Premium Shade Architecture Showcase">
+        <!-- Interactive Glowing Particle Canvas -->
+        <canvas class="hero-particle-canvas" id="ph2ParticleCanvas" aria-hidden="true"></canvas>
+
+        <!-- Animated background glow effects -->
+        <div class="ph2-glow ph2-glow--1"></div>
+        <div class="ph2-glow ph2-glow--2"></div>
+        <div class="ph2-glow ph2-glow--3"></div>
+        <div class="ph2-particles" aria-hidden="true">
+            <span class="mote-gold"></span><span class="mote-teal"></span>
+            <span class="mote-gold"></span><span class="mote-gold"></span>
+            <span class="mote-teal"></span><span class="mote-gold"></span>
+            <span class="mote-teal"></span><span class="mote-gold"></span>
+            <span class="mote-gold"></span><span class="mote-teal"></span>
+            <span class="mote-gold"></span><span class="mote-gold"></span>
+            <span class="mote-gold"></span><span class="mote-teal"></span>
+            <span class="mote-teal"></span><span class="mote-gold"></span>
+            <span class="mote-gold"></span><span class="mote-teal"></span>
+            <span class="mote-teal"></span><span class="mote-gold"></span>
         </div>
-        <div class="hero-premium-content">
-            <span class="hero-badge"><i class="fas fa-gem"></i> Premium Collection</span>
-            <h1>Luxury Shade <span class="highlight">Architecture</span> for Modern Living</h1>
-            <p>Bespoke awning and canopy installations that redefine outdoor elegance. Engineered for performance, designed for distinction.</p>
-            <div class="hero-actions">
-                <a href="contact.html" class="btn btn-primary btn-lg">Request Premium Consultation</a>
-                <a href="gallery.html" class="btn btn-secondary btn-lg">View Portfolio</a>
+
+        <div class="container ph2-slider-wrapper">
+
+            <!-- ── SLIDER CONTAINER ── -->
+            <div class="ph2-slider" id="home2HeroSlider">
+
+                <!-- ════ SLIDE 1: LUXURY ARCHITECTURE ════ -->
+                <div class="ph2-slide active" data-slide="0" aria-hidden="false">
+                    <div class="ph2-grid">
+                        <!-- Left: Content -->
+                        <div class="ph2-content">
+                            <span class="ph2-badge"><i class="fas fa-gem"></i> Premium Collection</span>
+                            <h1 class="ph2-title">Luxury Shade <span class="ph2-highlight">Architecture</span> for Modern Living</h1>
+                            <p class="ph2-subtitle">Bespoke awning and canopy installations that redefine outdoor elegance. Engineered for architectural distinction, smart automation, and all-weather endurance.</p>
+                            <div class="ph2-features">
+                                <div class="ph2-feat"><i class="fas fa-drafting-compass"></i> Custom Engineered</div>
+                                <div class="ph2-feat"><i class="fas fa-shield-alt"></i> 10-Yr Warranty</div>
+                                <div class="ph2-feat"><i class="fas fa-bolt"></i> Somfy® Motorized</div>
+                                <div class="ph2-feat"><i class="fas fa-award"></i> Marine-Grade Alloy</div>
+                            </div>
+                            <div class="ph2-actions">
+                                <a href="contact.html" class="btn btn-primary ph2-cta">Request Consultation <i class="fas fa-arrow-right"></i></a>
+                                <a href="gallery.html" class="btn btn-secondary ph2-cta-alt">Explore Portfolio</a>
+                            </div>
+                        </div>
+
+                        <!-- Right: Visual with floating badges -->
+                        <div class="ph2-visual">
+                            <div class="ph2-img-wrapper">
+                                <img src="assets/images/home2-hero-showcase.jpg" alt="Luxury motorized awning installation on a premium rooftop terrace at golden hour" loading="eager">
+                                <div class="ph2-img-border"></div>
+                            </div>
+                            <!-- Floating stat badges -->
+                            <div class="ph2-float ph2-float--1">
+                                <i class="fas fa-crown"></i>
+                                <div><strong>2,500+</strong><span>Luxury Projects</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--2">
+                                <i class="fas fa-star"></i>
+                                <div><strong>4.9 / 5.0</strong><span>Client Rating</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--3">
+                                <i class="fas fa-award"></i>
+                                <div><strong>100%</strong><span>Marine Grade</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ════ SLIDE 2: BIOCLIMATIC PERGOLAS ════ -->
+                <div class="ph2-slide" data-slide="1" aria-hidden="true">
+                    <div class="ph2-grid">
+                        <!-- Left: Content -->
+                        <div class="ph2-content">
+                            <span class="ph2-badge"><i class="fas fa-sliders-h"></i> Bioclimatic Pergolas</span>
+                            <h1 class="ph2-title">Intelligent <span class="ph2-highlight">Louvered Systems</span> with Smart Control</h1>
+                            <p class="ph2-subtitle">Motorized 135° rotating aluminum louvers, hidden internal drainage gutters, and integrated warm dimmable LEDs that adapt effortlessly to sunshine or rain.</p>
+                            <div class="ph2-features">
+                                <div class="ph2-feat"><i class="fas fa-sun"></i> 135° Louver Tilt</div>
+                                <div class="ph2-feat"><i class="fas fa-cloud-showers-heavy"></i> 100% Watertight</div>
+                                <div class="ph2-feat"><i class="fas fa-mobile-alt"></i> Somfy® Smart App</div>
+                                <div class="ph2-feat"><i class="fas fa-wind"></i> 120mph Wind Tested</div>
+                            </div>
+                            <div class="ph2-actions">
+                                <a href="contact.html" class="btn btn-primary ph2-cta">Configure System <i class="fas fa-arrow-right"></i></a>
+                                <a href="products.html" class="btn btn-secondary ph2-cta-alt">Explore Pergolas</a>
+                            </div>
+                        </div>
+
+                        <!-- Right: Visual with floating badges -->
+                        <div class="ph2-visual">
+                            <div class="ph2-img-wrapper">
+                                <img src="assets/images/index-hero-masterpiece.jpg" alt="Architectural motorized bioclimatic pergola canopy over private luxury pool terrace" loading="lazy">
+                                <div class="ph2-img-border"></div>
+                            </div>
+                            <!-- Floating stat badges -->
+                            <div class="ph2-float ph2-float--1">
+                                <i class="fas fa-microchip"></i>
+                                <div><strong>Smart</strong><span>Automated Sensors</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--2">
+                                <i class="fas fa-shield-halved"></i>
+                                <div><strong>15-Year</strong><span>Structural Integrity</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--3">
+                                <i class="fas fa-tint-slash"></i>
+                                <div><strong>100%</strong><span>Hidden Gutters</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ════ SLIDE 3: HOSPITALITY & COMMERCIAL VENUES ════ -->
+                <div class="ph2-slide" data-slide="2" aria-hidden="true">
+                    <div class="ph2-grid">
+                        <!-- Left: Content -->
+                        <div class="ph2-content">
+                            <span class="ph2-badge"><i class="fas fa-hotel"></i> Hospitality &amp; Venues</span>
+                            <h1 class="ph2-title">Transform Your <span class="ph2-highlight">Terrace &amp; Venue</span> Year-Round</h1>
+                            <p class="ph2-subtitle">Expand usable dining capacity 365 days a year with commercial retractable roofs and entrance canopies that increase hospitality revenue and guest comfort.</p>
+                            <div class="ph2-features">
+                                <div class="ph2-feat"><i class="fas fa-utensils"></i> +40% Seating Capacity</div>
+                                <div class="ph2-feat"><i class="fas fa-fire"></i> Built-in Patio Heaters</div>
+                                <div class="ph2-feat"><i class="fas fa-certificate"></i> Fire &amp; Wind Certified</div>
+                                <div class="ph2-feat"><i class="fas fa-palette"></i> Custom Brand Colors</div>
+                            </div>
+                            <div class="ph2-actions">
+                                <a href="contact.html" class="btn btn-primary ph2-cta">Commercial Quote <i class="fas fa-arrow-right"></i></a>
+                                <a href="gallery.html" class="btn btn-secondary ph2-cta-alt">Hospitality Gallery</a>
+                            </div>
+                        </div>
+
+                        <!-- Right: Visual with floating badges -->
+                        <div class="ph2-visual">
+                            <div class="ph2-img-wrapper">
+                                <img src="assets/images/luxury-rooftop-hospitality.jpg" alt="Luxury restaurant rooftop dining terrace sheltered under motorized architectural canopies at sunset" loading="lazy">
+                                <div class="ph2-img-border"></div>
+                            </div>
+                            <!-- Floating stat badges -->
+                            <div class="ph2-float ph2-float--1">
+                                <i class="fas fa-chart-line"></i>
+                                <div><strong>+40%</strong><span>Revenue Seating</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--2">
+                                <i class="fas fa-building"></i>
+                                <div><strong>1,200+</strong><span>Commercial Sites</span></div>
+                            </div>
+                            <div class="ph2-float ph2-float--3">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div><strong>365 Days</strong><span>All-Weather Dining</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <!-- ── END SLIDER CONTAINER ── -->
+
+            <!-- ── BOTTOM CONTROLS (Preview Cards + Nav Capsule) ── -->
+            <div class="ph2-controls-bar">
+                <!-- 3 Interactive Slide Cards with Thumbnails & 5s Progress Line -->
+                <div class="ph2-tabs-grid" role="tablist" aria-label="Hero Slide Switcher">
+                    <button class="ph2-tab-card active" data-slide-to="0" role="tab" aria-selected="true" aria-label="Slide 1: Luxury Architecture">
+                        <div class="ph2-tab-thumb">
+                            <img src="assets/images/home2-hero-showcase.jpg" alt="Luxury Architecture preview">
+                        </div>
+                        <div class="ph2-tab-info">
+                            <span class="ph2-tab-num">01 / ARCHITECTURE</span>
+                            <strong class="ph2-tab-title">Luxury Living</strong>
+                        </div>
+                        <div class="ph2-tab-progress"><div class="ph2-tab-fill"></div></div>
+                    </button>
+
+                    <button class="ph2-tab-card" data-slide-to="1" role="tab" aria-selected="false" aria-label="Slide 2: Bioclimatic Pergolas">
+                        <div class="ph2-tab-thumb">
+                            <img src="assets/images/index-hero-masterpiece.jpg" alt="Bioclimatic Pergolas preview">
+                        </div>
+                        <div class="ph2-tab-info">
+                            <span class="ph2-tab-num">02 / BIOCLIMATIC</span>
+                            <strong class="ph2-tab-title">Smart Pergolas</strong>
+                        </div>
+                        <div class="ph2-tab-progress"><div class="ph2-tab-fill"></div></div>
+                    </button>
+
+                    <button class="ph2-tab-card" data-slide-to="2" role="tab" aria-selected="false" aria-label="Slide 3: Hospitality & Dining">
+                        <div class="ph2-tab-thumb">
+                            <img src="assets/images/luxury-rooftop-hospitality.jpg" alt="Hospitality Dining preview">
+                        </div>
+                        <div class="ph2-tab-info">
+                            <span class="ph2-tab-num">03 / HOSPITALITY</span>
+                            <strong class="ph2-tab-title">Terrace Dining</strong>
+                        </div>
+                        <div class="ph2-tab-progress"><div class="ph2-tab-fill"></div></div>
+                    </button>
+                </div>
+
+                <!-- Unified Nav Capsule: [ < ]  01 / 03  [ > ] -->
+                <div class="ph2-nav-cluster">
+                    <button class="ph2-cluster-btn" id="ph2PrevBtn" aria-label="Previous Slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="ph2-cluster-counter">
+                        <span class="ph2-active-num" id="ph2CurrentSlideNum">01</span>
+                        <span class="ph2-counter-sep">/</span>
+                        <span class="ph2-total-num">03</span>
+                    </div>
+                    <button class="ph2-cluster-btn" id="ph2NextBtn" aria-label="Next Slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -76,24 +276,6 @@
                     <div class="showcase-card-content">
                         <h3>Modern Villa — Poolside Sail Shades</h3>
                         <p>Architectural sail canopies providing UV protection over a luxury pool area. Stainless steel fittings with wind-rated tensioned design.</p>
-                    </div>
-                </div>
-                <div class="showcase-card fade-up">
-                    <div class="showcase-card-img">
-                        <img src="assets/images/gallery-3.jpg" alt="Commercial building with coordinated awnings">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>245 Metro Plaza — Commercial Facade</h3>
-                        <p>Multi-story coordinated window awning system with automated controls and synchronized color scheme to enhance building aesthetics.</p>
-                    </div>
-                </div>
-                <div class="showcase-card fade-up">
-                    <div class="showcase-card-img">
-                        <img src="assets/images/gallery-4.jpg" alt="Dome awning over boutique entrance">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>Maison Léonie — Heritage Dome Canopy</h3>
-                        <p>Custom wrought iron dome canopy with tempered glass panels for a luxury boutique. Handcrafted scrollwork detailing with weather-sealed joints.</p>
                     </div>
                 </div>
             </div>
@@ -164,57 +346,6 @@
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-header fade-up">
-                <span class="section-badge"><i class="fas fa-star"></i> Client Reviews</span>
-                <h2>Trusted by Thousands</h2>
-                <p>Hear from our premium clients about their experience with ShadeCraft installations.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"The 3D visualization service was incredible — we could see exactly how our patio cover would look before a single bolt was placed. The final result exceeded even the render."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AW</div>
-                        <div class="testimonial-info">
-                            <h4>Amanda Wheeler</h4>
-                            <span>Premium Patio Cover Client</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Smart home integration was a must for us. The awning responds to our Alexa commands and the weather sensors automatically protect it during storms. Truly premium."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">RB</div>
-                        <div class="testimonial-info">
-                            <h4>Robert Blake</h4>
-                            <span>Smart Home Integration</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Having a dedicated project manager made all the difference. Communication was exceptional from start to finish. Worth every penny of the premium service."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">LP</div>
-                        <div class="testimonial-info">
-                            <h4>Laura Patterson</h4>
-                            <span>Commercial Client, Hotel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ===== DESIGN INSPIRATION MOSAIC ===== -->
     <section class="mosaic-section section" id="designMosaic">
@@ -580,6 +711,58 @@
                         <div class="signature-meta">
                             <span><i class="fas fa-solar-panel"></i> 4.2kW system</span>
                             <span><i class="fas fa-leaf"></i> LEED Gold</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-badge"><i class="fas fa-star"></i> Client Reviews</span>
+                <h2>Trusted by Thousands</h2>
+                <p>Hear from our premium clients about their experience with ShadeCraft installations.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The 3D visualization service was incredible — we could see exactly how our patio cover would look before a single bolt was placed. The final result exceeded even the render."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AW</div>
+                        <div class="testimonial-info">
+                            <h4>Amanda Wheeler</h4>
+                            <span>Premium Patio Cover Client</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Smart home integration was a must for us. The awning responds to our Alexa commands and the weather sensors automatically protect it during storms. Truly premium."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RB</div>
+                        <div class="testimonial-info">
+                            <h4>Robert Blake</h4>
+                            <span>Smart Home Integration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Having a dedicated project manager made all the difference. Communication was exceptional from start to finish. Worth every penny of the premium service."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">LP</div>
+                        <div class="testimonial-info">
+                            <h4>Laura Patterson</h4>
+                            <span>Commercial Client, Hotel</span>
                         </div>
                     </div>
                 </div>

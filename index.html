@@ -13,79 +13,431 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-    <!-- ===== HERO SLIDER ===== -->
-    <section class="hero-slider" id="heroSlider">
-        <div class="hero-slide active" aria-hidden="false">
-            <div class="hero-slide-bg">
-                <img src="assets/images/hero-awning-1.jpg" alt="Modern retractable awning over a patio deck" loading="eager">
-            </div>
-            <div class="hero-slide-content">
-                <span class="hero-badge"><i class="fas fa-sun"></i> Premium Shade Solutions</span>
-                <h1>Transform Your <span class="highlight">Outdoor Living</span> Space</h1>
-                <p>Expert awning and canopy installation that blends beauty with function. Enjoy your patio, deck, or storefront in any weather.</p>
-                <div class="hero-actions">
-                    <a href="contact.html" class="btn btn-primary btn-lg">Book Free Measurement</a>
-                    <a href="products.html" class="btn btn-secondary btn-lg">Explore Products</a>
-                </div>
-                <div class="hero-stat-row">
-                    <div class="hero-stat-item">
-                        <span class="stat-num" data-count="2500" data-suffix="+">0</span>
-                        <span class="stat-label">Installations</span>
+    <!-- ===== HOME HERO — 3-Slide 3-Card Showcase Slider ===== -->
+    <section class="hh-hero" id="homeHero" aria-label="Featured Shade Solutions">
+        <div class="hh-grain"></div>
+
+        <!-- Thematic Sun Corona & Volumetric Sunbeams -->
+        <div class="hh-sun-corona"></div>
+        <div class="hh-sunbeams" aria-hidden="true">
+            <span class="hh-beam hh-beam--1"></span>
+            <span class="hh-beam hh-beam--2"></span>
+            <span class="hh-beam hh-beam--3"></span>
+            <span class="hh-beam hh-beam--4"></span>
+        </div>
+
+        <!-- Bioclimatic Pergola Louvers (Architectural Shade Slats) -->
+        <div class="hh-pergola-louvers" aria-hidden="true">
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+            <span class="hh-louver"></span>
+        </div>
+
+        <!-- Canopy Fabric Breeze Waves -->
+        <svg class="hh-canopy-waves" viewBox="0 0 1440 280" preserveAspectRatio="none" aria-hidden="true">
+            <path class="hh-wave-path hh-wave--1" d="M0,120 C320,240 460,40 760,140 C1060,240 1200,60 1440,160 L1440,280 L0,280 Z"></path>
+            <path class="hh-wave-path hh-wave--2" d="M0,180 C260,80 520,220 840,110 C1140,20 1280,200 1440,130 L1440,280 L0,280 Z"></path>
+        </svg>
+
+        <!-- Ambient Light Orbs -->
+        <div class="hh-orb hh-orb--a"></div>
+        <div class="hh-orb hh-orb--b"></div>
+        <div class="hh-orb hh-orb--c"></div>
+
+        <!-- Interactive Mouse Follower Sunlight Spotlight -->
+        <div class="hh-cursor-sun" id="hhCursorSun" aria-hidden="true"></div>
+
+        <div class="hh-scanline"></div>
+
+        <div class="container hh-slider-wrapper">
+
+            <!-- ── SLIDER CONTAINER ── -->
+            <div class="hh-slider" id="homeHeroSlider">
+
+                <!-- ════ SLIDE 1: RESIDENTIAL ════ -->
+                <div class="hh-slide active" data-slide="0" aria-hidden="false">
+                    <div class="hh-inner">
+
+                        <!-- Left: Residential Content -->
+                        <div class="hh-content">
+                            <div class="hh-eyebrow">
+                                <span class="hh-pulse"></span>
+                                <span><i class="fas fa-home"></i> Bespoke Residential Living</span>
+                            </div>
+                            <h1 class="hh-title">
+                                <span class="hh-title-line">Craft Your</span>
+                                <span class="hh-title-line hh-title-gradient">Perfect Outdoor</span>
+                                <span class="hh-title-line">Sanctuary</span>
+                            </h1>
+                            <p class="hh-desc">
+                                From bespoke retractable awnings to architecturally engineered canopies — we design, fabricate, and install luxury shade systems that redefine how you live outside.
+                            </p>
+                            <div class="hh-chips">
+                                <div class="hh-chip"><i class="fas fa-drafting-compass"></i> Custom Engineered</div>
+                                <div class="hh-chip"><i class="fas fa-shield-halved"></i> 10-Year Warranty</div>
+                                <div class="hh-chip"><i class="fas fa-bolt"></i> Somfy® Automation</div>
+                                <div class="hh-chip"><i class="fas fa-tape"></i> Free Site Survey</div>
+                            </div>
+                            <div class="hh-ctas">
+                                <a href="contact.html" class="hh-btn-primary" id="heroBookBtn1">
+                                    <span>Book Free Measurement</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="hh-btn-shine"></span>
+                                </a>
+                                <a href="gallery.html" class="hh-btn-secondary" id="heroGalleryBtn1">
+                                    <i class="fas fa-images"></i>
+                                    <span>View Portfolio</span>
+                                </a>
+                            </div>
+                            <div class="hh-stats">
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="2500" data-suffix="+">2,500+</span>
+                                    <span class="hh-stat-label">Installations</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="15" data-suffix="yr">15yr</span>
+                                    <span class="hh-stat-label">Experience</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="98" data-suffix="%">98%</span>
+                                    <span class="hh-stat-label">Satisfaction</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: 3-Image Asymmetric Mosaic (Slide 1: Pergola Spotlight) -->
+                        <div class="hh-mosaic">
+                            <div class="hh-card hh-card--large hh-card--spotlight" role="button" tabindex="0" data-slide-target="0" title="Slide 1: Residential">
+                                <div class="hh-card-inner">
+                                    <img src="assets/images/hero-home-pergola.jpg" alt="Luxury white motorized pergola canopy with pool view" loading="eager">
+                                    <div class="hh-card-overlay"></div>
+                                    <div class="hh-card-label">
+                                        <i class="fas fa-home"></i> Residential
+                                    </div>
+                                    <div class="hh-card-active-badge"><i class="fas fa-check-circle"></i> Active</div>
+                                </div>
+                                <div class="hh-card-border"></div>
+                            </div>
+
+                            <div class="hh-card-stack">
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="1" title="Switch to Commercial">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-storefront.jpg" alt="Elegant navy blue commercial storefront awning at dusk" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-store"></i> Commercial
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="2" title="Switch to Hospitality">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-cafe.jpg" alt="Mediterranean café terrace with striped retractable awning at golden hour" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-umbrella-beach"></i> Hospitality
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                            </div>
+
+                            <div class="hh-trust-pill">
+                                <div class="hh-trust-icon"><i class="fas fa-star"></i></div>
+                                <div class="hh-trust-text">
+                                    <strong>4.9 / 5.0</strong>
+                                    <span>850+ Verified Reviews</span>
+                                </div>
+                            </div>
+
+                            <div class="hh-award-pill">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <strong>Award-Winning</strong>
+                                    <span>Design Excellence 2024</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="hero-stat-item">
-                        <span class="stat-num" data-count="15" data-suffix=" yrs">0</span>
-                        <span class="stat-label">Experience</span>
+                </div>
+
+                <!-- ════ SLIDE 2: COMMERCIAL ════ -->
+                <div class="hh-slide" data-slide="1" aria-hidden="true">
+                    <div class="hh-inner">
+
+                        <!-- Left: Commercial Content -->
+                        <div class="hh-content">
+                            <div class="hh-eyebrow">
+                                <span class="hh-pulse"></span>
+                                <span><i class="fas fa-store"></i> Commercial Architecture</span>
+                            </div>
+                            <h1 class="hh-title">
+                                <span class="hh-title-line">Elevate Your</span>
+                                <span class="hh-title-line hh-title-gradient">Business Facade</span>
+                                <span class="hh-title-line">&amp; Presence</span>
+                            </h1>
+                            <p class="hh-desc">
+                                Command pedestrian attention and protect entryways with commercial-grade storefront awnings, branded vestibules, and entrance canopies engineered for high durability.
+                            </p>
+                            <div class="hh-chips">
+                                <div class="hh-chip"><i class="fas fa-building"></i> Storefront Canopies</div>
+                                <div class="hh-chip"><i class="fas fa-paint-brush"></i> Custom Graphics &amp; Logo</div>
+                                <div class="hh-chip"><i class="fas fa-certificate"></i> Wind &amp; Snow Rated</div>
+                                <div class="hh-chip"><i class="fas fa-shield-alt"></i> Fire-Retardant Fabric</div>
+                            </div>
+                            <div class="hh-ctas">
+                                <a href="contact.html" class="hh-btn-primary" id="heroBookBtn2">
+                                    <span>Request Commercial Quote</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="hh-btn-shine"></span>
+                                </a>
+                                <a href="gallery.html" class="hh-btn-secondary" id="heroGalleryBtn2">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>View Commercial</span>
+                                </a>
+                            </div>
+                            <div class="hh-stats">
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="1200" data-suffix="+">1,200+</span>
+                                    <span class="hh-stat-label">Commercial Sites</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="120" data-suffix="mph">120mph</span>
+                                    <span class="hh-stat-label">Wind Resistance</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="100" data-suffix="%">100%</span>
+                                    <span class="hh-stat-label">Code Compliant</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: 3-Image Asymmetric Mosaic (Slide 2: Storefront Spotlight) -->
+                        <div class="hh-mosaic">
+                            <div class="hh-card hh-card--large hh-card--spotlight" role="button" tabindex="0" data-slide-target="1" title="Slide 2: Commercial">
+                                <div class="hh-card-inner">
+                                    <img src="assets/images/hero-home-storefront.jpg" alt="Commercial navy blue awning facade on high-end boutique storefront" loading="lazy">
+                                    <div class="hh-card-overlay"></div>
+                                    <div class="hh-card-label">
+                                        <i class="fas fa-store"></i> Commercial
+                                    </div>
+                                    <div class="hh-card-active-badge"><i class="fas fa-check-circle"></i> Active</div>
+                                </div>
+                                <div class="hh-card-border"></div>
+                            </div>
+
+                            <div class="hh-card-stack">
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="0" title="Switch to Residential">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-pergola.jpg" alt="Luxury white motorized pergola canopy" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-home"></i> Residential
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="2" title="Switch to Hospitality">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-cafe.jpg" alt="Mediterranean café terrace with striped retractable awning" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-umbrella-beach"></i> Hospitality
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                            </div>
+
+                            <div class="hh-trust-pill">
+                                <div class="hh-trust-icon"><i class="fas fa-building"></i></div>
+                                <div class="hh-trust-text">
+                                    <strong>1,200+ Businesses</strong>
+                                    <span>Retail, Hotels &amp; Dining</span>
+                                </div>
+                            </div>
+
+                            <div class="hh-award-pill">
+                                <i class="fas fa-shield-halved"></i>
+                                <div>
+                                    <strong>AAMA 2604</strong>
+                                    <span>Architectural Coating</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="hero-stat-item">
-                        <span class="stat-num" data-count="98" data-suffix="%">0</span>
-                        <span class="stat-label">Satisfaction</span>
+                </div>
+
+                <!-- ════ SLIDE 3: HOSPITALITY ════ -->
+                <div class="hh-slide" data-slide="2" aria-hidden="true">
+                    <div class="hh-inner">
+
+                        <!-- Left: Hospitality Content -->
+                        <div class="hh-content">
+                            <div class="hh-eyebrow">
+                                <span class="hh-pulse"></span>
+                                <span><i class="fas fa-utensils"></i> Hospitality &amp; Dining</span>
+                            </div>
+                            <h1 class="hh-title">
+                                <span class="hh-title-line">Maximize</span>
+                                <span class="hh-title-line hh-title-gradient">All-Weather </span>
+                                <span class="hh-title-line">Dining</span>
+                            </h1>
+                            <p class="hh-desc">
+                                Turn patio space into high-yield dining capacity 365 days a year. Motorized retractable roof systems with integrated dimmable LED lighting, climate heaters, and rain sensors.
+                            </p>
+                            <div class="hh-chips">
+                                <div class="hh-chip"><i class="fas fa-umbrella-beach"></i> Retractable Pergolas</div>
+                                <div class="hh-chip"><i class="fas fa-cloud-showers-heavy"></i> 100% Watertight System</div>
+                                <div class="hh-chip"><i class="fas fa-lightbulb"></i> Integrated Warm LEDs</div>
+                                <div class="hh-chip"><i class="fas fa-wind"></i> Automated Wind Sensors</div>
+                            </div>
+                            <div class="hh-ctas">
+                                <a href="contact.html" class="hh-btn-primary" id="heroBookBtn3">
+                                    <span>Schedule Site Survey</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="hh-btn-shine"></span>
+                                </a>
+                                <a href="products.html" class="hh-btn-secondary" id="heroGalleryBtn3">
+                                    <i class="fas fa-compass"></i>
+                                    <span>Explore Systems</span>
+                                </a>
+                            </div>
+                            <div class="hh-stats">
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="40" data-suffix="%">+40%</span>
+                                    <span class="hh-stat-label">Guest Capacity</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="365" data-suffix="days">365d</span>
+                                    <span class="hh-stat-label">Year-Round Dining</span>
+                                </div>
+                                <div class="hh-stat-div"></div>
+                                <div class="hh-stat">
+                                    <span class="hh-stat-num" data-target="100" data-suffix="%">100%</span>
+                                    <span class="hh-stat-label">Rainproof Seal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: 3-Image Asymmetric Mosaic (Slide 3: Cafe Spotlight) -->
+                        <div class="hh-mosaic">
+                            <div class="hh-card hh-card--large hh-card--spotlight" role="button" tabindex="0" data-slide-target="2" title="Slide 3: Hospitality">
+                                <div class="hh-card-inner">
+                                    <img src="assets/images/hero-home-cafe.jpg" alt="Mediterranean café terrace with striped retractable awning at golden hour" loading="lazy">
+                                    <div class="hh-card-overlay"></div>
+                                    <div class="hh-card-label">
+                                        <i class="fas fa-umbrella-beach"></i> Hospitality
+                                    </div>
+                                    <div class="hh-card-active-badge"><i class="fas fa-check-circle"></i> Active</div>
+                                </div>
+                                <div class="hh-card-border"></div>
+                            </div>
+
+                            <div class="hh-card-stack">
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="0" title="Switch to Residential">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-pergola.jpg" alt="Luxury white motorized pergola canopy" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-home"></i> Residential
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                                <div class="hh-card hh-card--small" role="button" tabindex="0" data-slide-target="1" title="Switch to Commercial">
+                                    <div class="hh-card-inner">
+                                        <img src="assets/images/hero-home-storefront.jpg" alt="Commercial navy blue awning facade on high-end boutique storefront" loading="lazy">
+                                        <div class="hh-card-overlay"></div>
+                                        <div class="hh-card-label">
+                                            <i class="fas fa-store"></i> Commercial
+                                        </div>
+                                    </div>
+                                    <div class="hh-card-border"></div>
+                                </div>
+                            </div>
+
+                            <div class="hh-trust-pill">
+                                <div class="hh-trust-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="hh-trust-text">
+                                    <strong>+40% Dining Space</strong>
+                                    <span>All-Weather Revenue</span>
+                                </div>
+                            </div>
+
+                            <div class="hh-award-pill">
+                                <i class="fas fa-cloud-showers-heavy"></i>
+                                <div>
+                                    <strong>100% Watertight</strong>
+                                    <span>Engineered Drainage</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="hero-slide" aria-hidden="true">
-            <div class="hero-slide-bg">
-                <img src="assets/images/hero-canopy-2.jpg" alt="Elegant commercial storefront awning" loading="lazy">
             </div>
-            <div class="hero-slide-content">
-                <span class="hero-badge"><i class="fas fa-store"></i> Commercial Solutions</span>
-                <h1>Elevate Your <span class="highlight">Business Facade</span></h1>
-                <p>Eye-catching commercial awnings that boost curb appeal, reduce energy costs, and create inviting storefronts for your customers.</p>
-                <div class="hero-actions">
-                    <a href="contact.html" class="btn btn-primary btn-lg">Get a Quote</a>
-                    <a href="gallery.html" class="btn btn-secondary btn-lg">View Our Work</a>
+            <!-- ── END SLIDER CONTAINER ── -->
+
+            <!-- ── BOTTOM CONTROLS & 5-SEC PROGRESS BARS ── -->
+            <div class="hh-controls-bar">
+                <!-- Prev / Next arrows -->
+                <div class="hh-nav-btns">
+                    <button class="hh-nav-btn hh-nav-prev" id="hhPrevBtn" aria-label="Previous Slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="hh-nav-btn hh-nav-next" id="hhNextBtn" aria-label="Next Slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- 3 Interactive Slide Tabs with 5s Progress Bars -->
+                <div class="hh-dots-track" role="tablist" aria-label="Hero Slide Switcher">
+                    <button class="hh-dot-tab active" data-slide-to="0" role="tab" aria-selected="true" aria-label="Slide 1: Residential">
+                        <div class="hh-dot-progress"><div class="hh-dot-fill"></div></div>
+                        <div class="hh-dot-label">
+                            <span class="hh-dot-num">01</span>
+                            <span class="hh-dot-name">Residential</span>
+                        </div>
+                    </button>
+                    <button class="hh-dot-tab" data-slide-to="1" role="tab" aria-selected="false" aria-label="Slide 2: Commercial">
+                        <div class="hh-dot-progress"><div class="hh-dot-fill"></div></div>
+                        <div class="hh-dot-label">
+                            <span class="hh-dot-num">02</span>
+                            <span class="hh-dot-name">Commercial</span>
+                        </div>
+                    </button>
+                    <button class="hh-dot-tab" data-slide-to="2" role="tab" aria-selected="false" aria-label="Slide 3: Hospitality">
+                        <div class="hh-dot-progress"><div class="hh-dot-fill"></div></div>
+                        <div class="hh-dot-label">
+                            <span class="hh-dot-num">03</span>
+                            <span class="hh-dot-name">Hospitality</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Slide counter -->
+                <div class="hh-counter-badge">
+                    <span class="hh-active-num" id="hhCurrentSlideNum">01</span>
+                    <span class="hh-counter-sep">/</span>
+                    <span class="hh-total-num">03</span>
                 </div>
             </div>
-        </div>
 
-        <div class="hero-slide" aria-hidden="true">
-            <div class="hero-slide-bg">
-                <img src="assets/images/hero-patio-3.jpg" alt="Pergola canopy over outdoor dining" loading="lazy">
-            </div>
-            <div class="hero-slide-content">
-                <span class="hero-badge"><i class="fas fa-utensils"></i> Patio & Pergola</span>
-                <h1>Dine Under the <span class="highlight">Perfect Canopy</span></h1>
-                <p>Custom patio covers and pergola canopies that extend your entertainment area year-round. Built to last, designed to impress.</p>
-                <div class="hero-actions">
-                    <a href="products.html" class="btn btn-primary btn-lg">See Patio Covers</a>
-                    <a href="pricing.html" class="btn btn-secondary btn-lg">Pricing Guide</a>
-                </div>
-            </div>
         </div>
-
-        <!-- Dots -->
-        <div class="hero-dots">
-            <button class="hero-dot active" aria-label="Slide 1" aria-selected="true"><span class="hero-dot-fill"></span></button>
-            <button class="hero-dot" aria-label="Slide 2" aria-selected="false"><span class="hero-dot-fill"></span></button>
-            <button class="hero-dot" aria-label="Slide 3" aria-selected="false"><span class="hero-dot-fill"></span></button>
-        </div>
-
-        <!-- Nav Arrows -->
-        <div class="hero-nav">
-            <button class="hero-nav-btn" id="heroPrevBtn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
-            <button class="hero-nav-btn" id="heroNextBtn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
-        </div>
+        <!-- END hh-slider-wrapper -->
     </section>
 
     <!-- ===== AWNING STYLE GALLERY ===== -->

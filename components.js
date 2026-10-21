@@ -698,6 +698,388 @@ function initHeroSlider() {
     startTimer();
 }
 
+
+
+/* ---- HOME HERO SHOWCASE SLIDER (3 Slides, 3-Card Mosaic, 5s Auto-Rotation) ---- */
+function initHomeHeroSlider() {
+    const hero = document.getElementById('homeHero');
+    const slider = document.getElementById('homeHeroSlider');
+    if (!hero || !slider) return;
+
+    const slides = slider.querySelectorAll('.hh-slide');
+    const tabs = hero.querySelectorAll('.hh-dot-tab');
+    const prevBtn = document.getElementById('hhPrevBtn');
+    const nextBtn = document.getElementById('hhNextBtn');
+    const currNum = document.getElementById('hhCurrentSlideNum');
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+    let isPaused = false;
+    const duration = 5000; // 5 seconds per slide rotation
+
+    function animateSlideStats(slide) {
+        const statNums = slide.querySelectorAll('.hh-stat-num[data-target]');
+        statNums.forEach(el => {
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            let current = 0;
+            const steps = 30;
+            const stepVal = Math.max(1, Math.floor(target / steps));
+            const countTimer = setInterval(() => {
+                current += stepVal;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(countTimer);
+                }
+                el.textContent = current.toLocaleString() + suffix;
+            }, 25);
+        });
+    }
+
+    function updateSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+            const isActive = i === currentIndex;
+            slide.classList.toggle('active', isActive);
+            slide.setAttribute('aria-hidden', !isActive);
+            if (isActive) animateSlideStats(slide);
+        });
+
+        tabs.forEach((tab, i) => {
+            const isActive = i === currentIndex;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            const fill = tab.querySelector('.hh-dot-fill');
+            if (fill) {
+                fill.style.animation = 'none';
+                if (isActive) {
+                    void fill.offsetWidth; // trigger reflow
+                    fill.style.animation = `hhDotFill ${duration}ms linear forwards`;
+                    if (isPaused) {
+                        fill.style.animationPlayState = 'paused';
+                    }
+                }
+            }
+        });
+
+        if (currNum) {
+            currNum.textContent = `0${currentIndex + 1}`;
+        }
+    }
+
+    function nextSlide() {
+        updateSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        updateSlide(currentIndex - 1);
+    }
+
+    function startTimer() {
+        stopTimer();
+        timer = setInterval(() => {
+            if (!isPaused) {
+                nextSlide();
+            }
+        }, duration);
+    }
+
+    function stopTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function resetTimer() {
+        startTimer();
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) prevSlide(); else nextSlide();
+            resetTimer();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) nextSlide(); else prevSlide();
+            resetTimer();
+        });
+    }
+
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+            if (currentIndex !== i) {
+                updateSlide(i);
+                resetTimer();
+            }
+        });
+    });
+
+    // Interactive card clicks on any of the 3 cards
+    const cardSelectors = hero.querySelectorAll('.hh-card[data-slide-target]');
+    cardSelectors.forEach(card => {
+        card.addEventListener('click', () => {
+            const target = parseInt(card.dataset.slideTarget, 10);
+            if (!isNaN(target) && target !== currentIndex) {
+                updateSlide(target);
+                resetTimer();
+            }
+        });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const target = parseInt(card.dataset.slideTarget, 10);
+                if (!isNaN(target)) {
+                    updateSlide(target);
+                    resetTimer();
+                }
+            }
+        });
+    });
+
+    hero.addEventListener('mouseenter', () => {
+        isPaused = true;
+        hero.classList.add('is-paused');
+        const activeFill = hero.querySelector('.hh-dot-tab.active .hh-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'paused';
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        isPaused = false;
+        hero.classList.remove('is-paused');
+        const activeFill = hero.querySelector('.hh-dot-tab.active .hh-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'running';
+    });
+
+    /* Interactive Sun Spotlight Follower */
+    const cursorSun = document.getElementById('hhCursorSun');
+    if (cursorSun) {
+        let mouseX = 0, mouseY = 0;
+        let curX = 0, curY = 0;
+        let isHovering = false;
+        let rAF = null;
+
+        function updateCursorSun() {
+            if (isHovering) {
+                curX += (mouseX - curX) * 0.12;
+                curY += (mouseY - curY) * 0.12;
+                cursorSun.style.transform = `translate3d(${curX}px, ${curY}px, 0) translate(-50%, -50%)`;
+                rAF = requestAnimationFrame(updateCursorSun);
+            }
+        }
+
+        hero.addEventListener('mouseenter', (e) => {
+            isHovering = true;
+            cursorSun.style.opacity = '1';
+            const rect = hero.getBoundingClientRect();
+            mouseX = curX = e.clientX - rect.left;
+            mouseY = curY = e.clientY - rect.top;
+            cursorSun.style.transform = `translate3d(${curX}px, ${curY}px, 0) translate(-50%, -50%)`;
+            cancelAnimationFrame(rAF);
+            rAF = requestAnimationFrame(updateCursorSun);
+        });
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            isHovering = false;
+            cursorSun.style.opacity = '0';
+            cancelAnimationFrame(rAF);
+        });
+    }
+
+    let touchStartX = 0;
+    hero.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    hero.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 45) {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (diff > 0) { isRTL ? prevSlide() : nextSlide(); }
+            else { isRTL ? nextSlide() : prevSlide(); }
+            resetTimer();
+        }
+    }, { passive: true });
+
+    window.addEventListener('keydown', (e) => {
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (e.key === 'ArrowRight') {
+                if (isRTL) prevSlide(); else nextSlide();
+                resetTimer();
+            } else if (e.key === 'ArrowLeft') {
+                if (isRTL) nextSlide(); else prevSlide();
+                resetTimer();
+            }
+        }
+    });
+
+    updateSlide(0);
+    startTimer();
+}
+
+/* ---- HOME 2 HERO SHOWCASE SLIDER (3 Slides, 5s Auto-Rotation) ---- */
+function initHome2HeroSlider() {
+    const hero = document.getElementById('home2Hero');
+    const slider = document.getElementById('home2HeroSlider');
+    if (!hero || !slider) return;
+
+    const slides = slider.querySelectorAll('.ph2-slide');
+    const tabs = hero.querySelectorAll('.ph2-tab-card, .ph2-dot-tab');
+    const prevBtn = document.getElementById('ph2PrevBtn');
+    const nextBtn = document.getElementById('ph2NextBtn');
+    const currNum = document.getElementById('ph2CurrentSlideNum');
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+    let isPaused = false;
+    const duration = 5000; // 5 seconds per slide rotation
+
+    function updateSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+            const isActive = i === currentIndex;
+            slide.classList.toggle('active', isActive);
+            slide.setAttribute('aria-hidden', !isActive);
+        });
+
+        tabs.forEach((tab, i) => {
+            const isActive = i === currentIndex;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            const fill = tab.querySelector('.ph2-tab-fill, .ph2-dot-fill');
+            if (fill) {
+                fill.style.animation = 'none';
+                if (isActive) {
+                    void fill.offsetWidth; // trigger reflow
+                    fill.style.animation = `hhDotFill ${duration}ms linear forwards`;
+                    if (isPaused) {
+                        fill.style.animationPlayState = 'paused';
+                    }
+                }
+            }
+        });
+
+        if (currNum) {
+            currNum.textContent = `0${currentIndex + 1}`;
+        }
+    }
+
+    function nextSlide() { updateSlide(currentIndex + 1); }
+    function prevSlide() { updateSlide(currentIndex - 1); }
+
+    function startTimer() {
+        stopTimer();
+        timer = setInterval(() => {
+            if (!isPaused) {
+                nextSlide();
+            }
+        }, duration);
+    }
+
+    function stopTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function resetTimer() {
+        startTimer();
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) prevSlide(); else nextSlide();
+            resetTimer();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRTL) nextSlide(); else prevSlide();
+            resetTimer();
+        });
+    }
+
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+            if (currentIndex !== i) {
+                updateSlide(i);
+                resetTimer();
+            }
+        });
+    });
+
+    hero.addEventListener('mouseenter', () => {
+        isPaused = true;
+        hero.classList.add('is-paused');
+        const activeFill = hero.querySelector('.ph2-tab-card.active .ph2-tab-fill, .ph2-dot-tab.active .ph2-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'paused';
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        isPaused = false;
+        hero.classList.remove('is-paused');
+        const activeFill = hero.querySelector('.ph2-tab-card.active .ph2-tab-fill, .ph2-dot-tab.active .ph2-dot-fill');
+        if (activeFill) activeFill.style.animationPlayState = 'running';
+    });
+
+    let touchStartX = 0;
+    hero.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    hero.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 45) {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (diff > 0) { isRTL ? prevSlide() : nextSlide(); }
+            else { isRTL ? nextSlide() : prevSlide(); }
+            resetTimer();
+        }
+    }, { passive: true });
+
+    window.addEventListener('keydown', (e) => {
+        if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            if (e.key === 'ArrowRight') {
+                if (isRTL) prevSlide(); else nextSlide();
+                resetTimer();
+            } else if (e.key === 'ArrowLeft') {
+                if (isRTL) nextSlide(); else prevSlide();
+                resetTimer();
+            }
+        }
+    });
+
+    updateSlide(0);
+    startTimer();
+}
+
 /* ---- GALLERY FILTER ---- */
 function initGalleryFilter() {
     const filterBtns = document.querySelectorAll('.gallery-filter-btn');
@@ -788,13 +1170,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initPasswordToggle();
     animateCounters();
     initHeroSlider();
+    initHomeHeroSlider();
+    initHome2HeroSlider();
     initGalleryFilter();
     initLightbox();
     initExplorerTabs();
     initBeforeAfterSlider();
+    initHomeHeroStats();
+    initSwatchSelector();
+    initHeroParticleCanvas();
 
     if (page === 'coming-soon.html') initCountdown();
 });
+
+/* ---- HOME HERO STAT COUNTERS (data-target) ---- */
+function initHomeHeroStats() {
+    const statNums = document.querySelectorAll('.hh-stat-num[data-target]');
+    if (!statNums.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            let current = 0;
+            const duration = 1600;
+            const steps = 60;
+            const increment = target / steps;
+            let frame = 0;
+            const timer = setInterval(() => {
+                frame++;
+                current = Math.min(Math.round(increment * frame), target);
+                el.textContent = current.toLocaleString() + suffix;
+                if (current >= target) clearInterval(timer);
+            }, duration / steps);
+            observer.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+
+    statNums.forEach(el => observer.observe(el));
+}
 
 /* ---- Product Explorer Tabs ---- */
 function initExplorerTabs() {
@@ -877,4 +1293,159 @@ function initBeforeAfterSlider() {
         slider.addEventListener('pointercancel', stopDrag);
     });
 }
+
+/* ---- PRODUCT MATERIAL SWATCH SELECTOR ---- */
+function initSwatchSelector() {
+    const swatchBtns = document.querySelectorAll('.swatch-btn');
+    const swatchLabel = document.getElementById('active-swatch-name');
+    if (!swatchBtns.length) return;
+
+    swatchBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            swatchBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if (swatchLabel && btn.dataset.name) {
+                swatchLabel.textContent = btn.dataset.name;
+            }
+        });
+    });
+}
+
+/* ---- HERO INTERACTIVE PARTICLE CANVAS ---- */
+function initHeroParticleCanvas() {
+    const canvases = document.querySelectorAll('.hero-particle-canvas');
+    if (!canvases.length) return;
+
+    canvases.forEach(canvas => {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = 0, height = 0;
+        let particles = [];
+        let mouseX = -1000, mouseY = -1000;
+        let isHovered = false;
+
+        function resize() {
+            width = canvas.width = parent.offsetWidth;
+            height = canvas.height = parent.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        parent.addEventListener('mousemove', (e) => {
+            const rect = parent.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+            isHovered = true;
+        }, { passive: true });
+
+        parent.addEventListener('mouseleave', () => {
+            mouseX = -1000;
+            mouseY = -1000;
+            isHovered = false;
+        });
+
+        const isDark = () => document.documentElement.classList.contains('dark') || (document.body && document.body.classList.contains('dark'));
+
+        class Particle {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * (width || window.innerWidth);
+                this.y = initial ? Math.random() * (height || 600) : (height || 600) + 10;
+                this.radius = Math.random() * 2.2 + 1.2;
+                this.baseAlpha = Math.random() * 0.45 + 0.35;
+                this.alpha = this.baseAlpha;
+                this.speedY = Math.random() * 0.55 + 0.25;
+                this.speedX = (Math.random() - 0.5) * 0.35;
+                this.swaySpeed = Math.random() * 0.02 + 0.01;
+                this.swayAngle = Math.random() * Math.PI * 2;
+                this.isGold = Math.random() > 0.35;
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.swayAngle += this.swaySpeed;
+                this.x += Math.sin(this.swayAngle) * 0.45 + this.speedX;
+                this.alpha = this.baseAlpha + Math.sin(this.swayAngle * 2) * 0.2;
+
+                if (isHovered) {
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const maxDist = 90;
+                    if (dist < maxDist && dist > 0) {
+                        const force = (1 - dist / maxDist) * 2;
+                        this.x += (dx / dist) * force;
+                        this.y += (dy / dist) * force;
+                    }
+                }
+
+                if (this.y < -15 || this.x < -20 || this.x > (width || window.innerWidth) + 20) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                const dark = isDark();
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+
+                if (this.isGold) {
+                    ctx.fillStyle = dark ? `rgba(255, 213, 107, ${Math.min(1, this.alpha * 1.35)})` : `rgba(212, 168, 83, ${this.alpha})`;
+                    ctx.shadowColor = dark ? 'rgba(255, 213, 107, 0.85)' : 'rgba(212, 168, 83, 0.5)';
+                    ctx.shadowBlur = dark ? 12 : 8;
+                } else {
+                    ctx.fillStyle = dark ? `rgba(78, 228, 214, ${Math.min(1, this.alpha * 1.3)})` : `rgba(45, 106, 90, ${this.alpha})`;
+                    ctx.shadowColor = dark ? 'rgba(78, 228, 214, 0.85)' : 'rgba(45, 106, 90, 0.5)';
+                    ctx.shadowBlur = dark ? 10 : 6;
+                }
+
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const count = Math.min(65, Math.max(35, Math.floor(((width || 1200) * (height || 600)) / 14000)));
+        particles = Array.from({ length: count }, () => new Particle());
+
+        function loop() {
+            ctx.clearRect(0, 0, width, height);
+
+            const maxDist = 70;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < maxDist) {
+                        const lineAlpha = (1 - dist / maxDist) * (isDark() ? 0.16 : 0.08);
+                        ctx.beginPath();
+                        ctx.strokeStyle = particles[i].isGold ? `rgba(212, 168, 83, ${lineAlpha})` : `rgba(52, 152, 143, ${lineAlpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    });
+}
+
 
