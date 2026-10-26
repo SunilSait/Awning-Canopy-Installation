@@ -5901,24 +5901,24 @@ p { font-weight: 400; }
     opacity: 1;
 }
 .about-mission-card-highlight {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    background: var(--bg-card);
     border: 1px solid var(--border);
 }
 .about-mission-card-highlight h3,
 .about-mission-card.about-mission-card-highlight h3 {
-    color: #ffffff;
+    color: var(--text);
 }
 .about-mission-card-highlight p,
 .about-mission-card.about-mission-card-highlight > p,
 .about-mission-card-highlight > p {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--text-secondary) !important;
     opacity: 1;
 }
 .about-mission-card-highlight:hover {
-    border-color: var(--secondary);
+    border-color: var(--primary-light);
 }
 .about-mission-card-highlight::before {
-    background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary));
 }
 .about-mission-card-icon {
     width: 56px;
@@ -5952,9 +5952,6 @@ p { font-weight: 400; }
     margin-bottom: 24px;
     flex-grow: 1;
 }
-.about-mission-card.about-mission-card-highlight > p {
-    color: rgba(255, 255, 255, 0.9);
-}
 .about-mission-list {
     display: flex;
     flex-direction: column;
@@ -5972,12 +5969,6 @@ p { font-weight: 400; }
 .about-mission-list li i {
     color: var(--secondary);
     font-size: 0.85rem;
-}
-.about-mission-card-highlight .about-mission-list li {
-    color: rgba(255,255,255,0.85);
-}
-.about-mission-card-highlight .about-mission-list li i {
-    color: var(--secondary);
 }
 .dark .about-mission-card {
     border-color: var(--border);
