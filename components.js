@@ -108,7 +108,6 @@ function renderNavbar() {
             </div>
             <div class="mob-actions">
                 <a href="login.html" class="btn btn-primary w-full">Sign In</a>
-                <a href="contact.html" class="btn btn-secondary w-full">Get Quote</a>
             </div>
             <div class="mob-toggles">
                 <button class="nav-icon-btn" id="rtlToggleMob" aria-label="Toggle layout direction / RTL" title="Toggle Direction">
